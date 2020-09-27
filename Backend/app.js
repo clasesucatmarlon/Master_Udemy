@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 
 // Añadir prefijos a rutas / cargar rutas
-app.use('/', article_routes);
+app.use('/api', article_routes);
 
 // Añadir ruta o método de prueba para la api
 
