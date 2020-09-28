@@ -1,38 +1,30 @@
 'use strict'
-// Creando servidor web con Express
 
-// Cargar módulos de node para crear servidor web
+// Cargar modulos de node para crear servidor
 var express = require('express');
-var bodyParser = require('body-parser'); //recibir peticiones
+var bodyParser = require('body-parser');
 
-// Ejecutar Express para trabajar http
+// Ejecutar express (http)
 var app = express();
 
-// Cargar ficheros y rutas
+// Cargar ficheros rutas
 var article_routes = require('./routes/article');
 
-// Cargar Middlewares (se ejecuta antes de cargar una ruta o url)
-app.use(bodyParser.urlencoded({extend:false}));
+// Middlewares 
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-// Cargar el CORS (Permitir peticiones desde el frontEnd)
+// CORS
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
 
-
-// Añadir prefijos a rutas / cargar rutas
+// Añadir prefijos a rutas / Cargar rutas
 app.use('/api', article_routes);
 
-// Añadir ruta o método de prueba para la api
-
-/* app.get('/datos-curso', (req, res) => {
-
-  // var hola = req.body.hola; // prueba de post con postman
-  return res.status(200).send({
-    curso: 'Master en Framework en JS',
-    autor: 'Marlon García',
-    url: 'https://pfholberton.netlify.app/',
-    // hola
-  });
-}); */
-
-// Exportar módulo (Fichero actual)
+// Exportar modulo (fichero actual)
 module.exports = app;
