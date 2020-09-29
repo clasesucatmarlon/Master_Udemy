@@ -1,21 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// Estilos CSS
+import './assets/css/App.css';
+
+// Iportat componentes propios
+import MiComponente from './components/MiComponente';
+import Peliculas from './components/Peliculas';
+import Header from './components/Header';
+import Slider from './components/Slider';
+import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App">
+				<Header />
+				<Slider />
+
+				<div className="center">
+					<section id="content">
+						<p>Aprendiendo React con Master React de Udemy </p>
+					
+						<section className="componentes">
+							<MiComponente />
+							<Peliculas />
+						</section>
+					</section>
+					<Sidebar />
+					<div className="clearfix"></div>
+				</div> {/* final div center */}
+				<Footer />
+			</div>
+		);
+	}
 }
 
 export default App;

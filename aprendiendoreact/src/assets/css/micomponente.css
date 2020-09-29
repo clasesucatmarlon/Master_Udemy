@@ -1,0 +1,18 @@
+.mi-componente {
+    background-color: #222;
+    padding-top: 2rem; 
+    padding-bottom: 2rem; 
+}
+.mi-componente h1 {
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.lista {
+    color: rgb(173, 168, 168);
+    font-size: 1.5rem;
+    margin-top: .4rem;
+    margin-bottom: .4rem;
+    text-align: center;
+}
