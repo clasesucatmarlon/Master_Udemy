@@ -3,32 +3,34 @@ import React, { Component } from 'react';
 // Estilos CSS
 import './assets/css/App.css';
 
-// Iportat componentes propios
-import MiComponente from './components/MiComponente';
-import Peliculas from './components/Peliculas';
+// componentes propios
 import Header from './components/Header';
 import Slider from './components/Slider';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
+import SeccionPruebas from './components/SeccionPruebas';
+import Peliculas from './components/Peliculas';
 
 class App extends Component {
+	
 	render() {
+		var buttonString = 'Ir al blog';
+		
 		return (
 			<div className="App">
 				<Header />
-				<Slider />
+				<Slider 
+					title='Bienvenido al Curso de React'
+					btn={buttonString}
+				/>
 
 				<div className="center">
-					<section id="content">
-						<p>Aprendiendo React con Master React de Udemy </p>
-					
-						<section className="componentes">
-							<MiComponente />
-							<Peliculas />
-						</section>
-					</section>
+
+					<Peliculas/>
 					<Sidebar />
+					
 					<div className="clearfix"></div>
+
 				</div> {/* final div center */}
 				<Footer />
 			</div>
